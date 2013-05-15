@@ -92,7 +92,7 @@ on_user_send_packet(From, To, Packet) ->
     if
       (Type == "chat") and (Body /= "") ->
         F = fun() ->
-          run_sql_query(["insert into sh_messages (from_jid, to_jid, body, utc) "
+          run_sql_query(["insert into sa_messages (from_jid, to_jid, body, utc) "
                        "values (", escape_str(From#jid.luser), ", ",
                        escape_str(To#jid.luser), ", ",
                        escape_str(Body), ", ",
